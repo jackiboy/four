@@ -108,7 +108,7 @@ class AppFixtures extends Fixture
         $field->setContentId(1);
         $field->setName('title');
         $field->setType('text');
-        $field->setValue(['text' => $this->getPhrases()[random_int(0, 33)]]);
+        $field->setValue(['text' => $this->getPhrases()[random_int(0, 28)]]);
         $field->setParentId(1);
         $field->setSortorder(0);
         // $field->setLocale();
