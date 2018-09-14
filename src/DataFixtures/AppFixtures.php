@@ -4,6 +4,7 @@ namespace Bolt\DataFixtures;
 
 use Bolt\Entity\Comment;
 use Bolt\Entity\Content;
+use Bolt\Entity\Field;
 use Bolt\Entity\Post;
 use Bolt\Entity\Tag;
 use Bolt\Entity\User;
@@ -27,6 +28,7 @@ class AppFixtures extends Fixture
         $this->loadTags($manager);
         $this->loadPosts($manager);
         $this->loadContent($manager);
+        $this->loadFields($manager);
     }
 
     private function loadUsers(ObjectManager $manager)
@@ -97,6 +99,22 @@ class AppFixtures extends Fixture
         $content->setPublishedAt(new \DateTime('now'));
 
         $manager->persist($content);
+        $manager->flush();
+    }
+
+    private function loadFields(ObjectManager $manager): void
+    {
+        $field = new Field();
+        $field->setContentId(1);
+        $field->setName('title');
+        $field->setType('text');
+        $field->setValue(['text' => $this->getPhrases()[random_int(0, 33)]]);
+        $field->setParentId(1);
+        $field->setSortorder(0);
+        // $field->setLocale();
+        // $field->setVersion();
+
+        $manager->persist($field);
         $manager->flush();
     }
 
