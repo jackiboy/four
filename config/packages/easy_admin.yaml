@@ -8,6 +8,11 @@
 
 easy_admin:
   entities:
-  - Bolt\Entity\Content
-  - Bolt\Entity\Field
-  - Bolt\Entity\User
+    Content:
+      class: Bolt\Entity\Content
+      list:
+        fields: ['id', 'contenttype', 'fields', 'author_id', 'status', 'created_at']
+    Field:
+      class: Bolt\Entity\Field
+    User:
+      class: Bolt\Entity\User
