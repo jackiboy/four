@@ -3,6 +3,8 @@
 namespace Bolt\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @ORM\Entity(repositoryClass="Bolt\Repository\ContentRepository")
@@ -21,6 +23,24 @@ class Content
      * @ORM\Column(type="string", length=191)
      */
     private $contenttype;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Bolt\Entity\Field", mappedBy="content_id")
+     */
+    private $fields;
+
+    public function __construct()
+    {
+        $this->fields = new ArrayCollection();
+    }
+
+    /**
+     * @return Collection|Field[]
+     */
+    public function getFields()
+    {
+        return $this->fields;
+    }
 
     /**
      * @ORM\Column(type="integer")

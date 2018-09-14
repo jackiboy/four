@@ -2,6 +2,7 @@
 
 namespace Bolt\Entity;
 
+use Doctrine\ORM\ManyToOne;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,6 +20,7 @@ class Field
 
     /**
      * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="Bolt\Entity\Content", inversedBy="bolt_field")
      */
     private $content_id;
 
@@ -69,8 +71,10 @@ class Field
 
     public function setContentId(int $content_id): self
     {
+        dump($content_id);
         $this->content_id = $content_id;
 
+        dump($this);
         return $this;
     }
 
