@@ -31,7 +31,7 @@
 
 <script>
 export default {
-  name: "listing-record-dropdown",
+  name: "listing-td-dropdown",
   props: ["record"]
 };
 </script>

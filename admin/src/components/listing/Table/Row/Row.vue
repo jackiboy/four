@@ -28,7 +28,7 @@
 <script>
   import Dropdown from './_dropdown.vue';
   export default {
-    name: 'listing-record',
+    name: 'listing-td',
     props: ["record"],
     components: {
       "listing-record-dropdown": Dropdown
