@@ -10,7 +10,7 @@
         </tr>
       </thead>
       <tbody>
-        <listing-record :record="record" v-for="(record, index) in listing" :key="index"></listing-record>
+        <listing-row :record="record" v-for="(record, index) in listing" :key="index"></listing-row>
       </tbody>
     </table>
     <listing-pagination 
@@ -24,13 +24,13 @@
 </template>
 
 <script>
-import Record from "./Record/Record.vue";
+import Row from "./Record/Record.vue";
 import Pagination from "./_pagination.vue";
 export default {
   name: "listing-table",
   props: ["record"],
   components: {
-    "listing-record": Record,
+    "listing-row": Row,
     "listing-pagination": Pagination
   },
   async beforeCreate() {
