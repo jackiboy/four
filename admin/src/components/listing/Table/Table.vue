@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import Record from "./_record.vue";
+import Record from "./Record/Record.vue";
 import Pagination from "./_pagination.vue";
 export default {
   name: "listing-table",
