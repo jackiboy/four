@@ -1,6 +1,6 @@
 <template>
   <div class="admin__listing">
-    <h1>Listing</h1>
+    <h3>content » {{type}}</h3>
     <listing-table></listing-table>
   </div>
 </template>
@@ -12,5 +12,10 @@ export default {
   components: {
     "listing-table": Table,
   },
+  computed: {
+    type(){
+      return this.$route.params.type
+    }
+  }
 }
 </script>
