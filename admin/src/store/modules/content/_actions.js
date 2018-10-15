@@ -9,6 +9,12 @@ const actions = {
       context.commit('setPagination', res.data.meta)
     })
   },
+  setCurrent: async (context, data) => {
+    await axios.get(`/api/contents/${data.id}`).then((res) =>{
+      const records = res.data.data
+      context.commit('setCurrent', records.attributes)
+    })
+  },
 }
 
 export default actions;

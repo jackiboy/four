@@ -1,6 +1,6 @@
 <template>
   <div class="listing">
-    <table class="table">
+    <table class="table table-striped">
       <thead>
         <tr>
           <th scope="col">Title / Excerpt</th>
@@ -13,13 +13,13 @@
         <listing-record :record="record" v-for="(record, index) in listing" :key="index"></listing-record>
       </tbody>
     </table>
-      <listing-pagination 
-        :total-pages="Number(pagination.totalItems) / Number(pagination.itemsPerPage)"
-        :current-page="Number(pagination.currentPage)"
-        :total="Number(pagination.totalItems)"
-        :per-page="Number(pagination.itemsPerPage)"
-      >
-      </listing-pagination>
+    <listing-pagination 
+      :total-pages="Number(pagination.totalItems) / Number(pagination.itemsPerPage)"
+      :current-page="Number(pagination.currentPage)"
+      :total="Number(pagination.totalItems)"
+      :per-page="Number(pagination.itemsPerPage)"
+    >
+    </listing-pagination>
   </div>
 </template>
 

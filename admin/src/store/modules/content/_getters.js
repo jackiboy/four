@@ -8,6 +8,9 @@ const getters = {
   getPagination(state) {
     return state.pagination;
   },
+  getCurrent(state) {
+    return state.current;
+  },
 }
 
 export default getters;
