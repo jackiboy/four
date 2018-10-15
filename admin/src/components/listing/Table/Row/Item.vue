@@ -18,9 +18,7 @@
     <td>image</td>
     <!-- Actions -->
     <td>
-      <listing-record-dropdown 
-        :record="record"
-      ></listing-record-dropdown>
+      <listing-record-dropdown :record="record"></listing-record-dropdown>
     </td>
   </tr>
 </template>
@@ -28,7 +26,7 @@
 <script>
   import Dropdown from './_dropdown.vue';
   export default {
-    name: 'listing-td',
+    name: 'listing-item',
     props: ["record"],
     components: {
       "listing-record-dropdown": Dropdown
