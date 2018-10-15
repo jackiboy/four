@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Table from '../../components/listing/Table/Table.vue';
+import Table from '../../components/listing/table/Table.vue';
 export default {
   name: 'admin-listing',
   components: {
