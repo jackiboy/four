@@ -59,7 +59,7 @@ pages:
         title:
             type: text
             class: large
-            group: content
+            group: main
         slug:
             type: slug
             uses: title
@@ -73,6 +73,7 @@ pages:
         marky:
             type: markdown
         body:
+            group: content
             type: html
             height: 300px
         template:
