@@ -5,6 +5,9 @@ api_platform:
         html:     ['text/html']
         json:     ['application/json']
         jsonapi:  ['application/vnd.api+json']
+    graphql:
+            graphiql:
+                enabled: true
     collection:
             pagination:
                 client_items_per_page: true
