@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import Row from "./Row/Item.vue"
+import Row from "./Row/Row.vue"
 import Pagination from "./_pagination.vue"
 
 export default {
