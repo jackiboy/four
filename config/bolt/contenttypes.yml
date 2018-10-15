@@ -60,6 +60,8 @@ pages:
             type: text
             class: large
             group: main
+            placeholder: "add title"
+            value: "hello"
         slug:
             type: slug
             uses: title
@@ -73,7 +75,7 @@ pages:
         marky:
             type: markdown
         body:
-            group: content
+            group: main content
             type: html
             height: 300px
         template:
