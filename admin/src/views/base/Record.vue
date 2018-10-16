@@ -4,7 +4,7 @@
     <div class="container">
       <div class="row">
         <record-main :record="record"></record-main>
-        <div class="col-4">
+        <div class="col-3">
           sidebar
         </div>
       </div>

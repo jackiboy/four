@@ -1,5 +1,5 @@
 <template>
-  <main class="col-8">
+  <main class="col-9">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" v-for="(group, index) in record.definition ? record.definition.groups:[]" :key="index">
         <a class="nav-link" data-toggle="tab" role="tab" :href="group|anchor" :id="'tab-' + group|slugify">{{group}}</a>
