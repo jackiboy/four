@@ -1,7 +1,7 @@
 <template>
   <div>
     <field-text v-if="field.type === 'text'" :define="field.definition" :value="field"></field-text>
-    <!-- <field-slug v-if="field.type === 'slug'" :data="field"></field-slug> -->
+    <field-slug v-if="field.type === 'slug'" :define="field.definition" :value="field"></field-slug>
   </div>
 </template>
 

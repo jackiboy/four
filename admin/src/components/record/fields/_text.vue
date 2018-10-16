@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import inject from './mixins/fieldInject.js'
+import inject from './mixins/attributesInject.js'
 import Label from './components/Label.vue'
 import Helper from './components/Helper.vue'
 
@@ -39,6 +39,11 @@ export default {
       val: null
     };
   },
+  watch: {
+    val(){
+      this.$store.dispatch('record/makeChange', {value: this.val, id: this.value.id, name: this.value.name})
+    }
+  }
 };
 </script>
 

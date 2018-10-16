@@ -59,11 +59,14 @@ pages:
         title:
             type: text
             class: large
+            # variant: inline
             group: main
-            placeholder: "add title"
-            postfix: "hello"
+            placeholder: "placeholder text"
+            postfix: "This is a postfix"
+            # prefix: "This is a prefix"
         slug:
             type: slug
+            # group: Other
             uses: title
         image:
             type: image

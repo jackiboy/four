@@ -21,7 +21,7 @@ export default {
     "record-main": Main,
   },
   beforeCreate(){
-    this.$store.dispatch("content/setCurrent", {
+    this.$store.dispatch("record/setRecord", {
       id: this.$route.params.id,
     });
   },
@@ -30,7 +30,7 @@ export default {
   },
   computed:{
     record(){
-      return this.$store.getters['content/getCurrent']
+      return this.$store.getters['record/getRecord']
     }
   }
 }
