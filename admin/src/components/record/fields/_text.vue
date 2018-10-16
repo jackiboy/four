@@ -1,47 +1,44 @@
 <template>
-  <div class="form-group">
-    <small class="form-text text-muted" v-if="data.prefix">{{data.prefix}}</small>
-    <label :for="data.name">
-      <template v-if="data.label !== ''">
-        {{data.label}}:
-      </template>
-      <template v-else>
-        {{data.name}}:       
-      </template>
-    </label>
-    <div class="col-sm-10"></div>
-    <input 
-      class="form-control" 
-      :class="{'form-control-lg': data.class === 'large'}"
-      :placeholder="placeholder"
-      :id="data.name"
-      v-model="text"
-    >
-    <small class="form-text text-muted" v-if="data.postfix">{{data.postfix}}</small>
+  <div class="form-group" :class="{'row': define.variant === 'inline'}">
+    <field-helper v-if="define.prefix" :message="define.prefix" :variant="define.variant"></field-helper>
+    <field-label :label="define.label" :name="value.name" :variant="define.variant"></field-label>
+    <div :class="{'col-sm-10': define.variant === 'inline'}">
+      <input 
+        class="form-control" 
+        :class="{'form-control-lg': define.class === 'large'}"
+        :placeholder="placeholder"
+        :id="define.name"
+        v-model="val"
+      >
+    </div>
+    <field-helper v-if="define.postfix" :message="define.postfix" :variant="define.variant"></field-helper>
   </div>
 </template>
 
 <script>
-
+import inject from './mixins/fieldInject.js'
+import Label from './components/Label.vue'
+import Helper from './components/Helper.vue'
 
 export default {
   name: "field-text",
-  props: ["data"],
+  props: ["define", "value"],
+  mixins: [inject],
+  components: {
+    "field-label": Label,
+    "field-helper": Helper
+  },
+  mounted(){
+    const val = this.value.value
+    if(val.length > 0){
+      this.val = val[0]
+    }
+  },
   data: () => {
     return {
-      text: null
+      val: null
     };
   },
-  computed: {
-    placeholder(){
-      const placeholder = this.data.placeholder
-      if(placeholder !== '' && placeholder !== undefined){
-        return this.data.placeholder
-      } else {
-        return ''
-      }
-    }
-  }
 };
 </script>
 

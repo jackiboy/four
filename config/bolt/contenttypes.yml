@@ -61,7 +61,7 @@ pages:
             class: large
             group: main
             placeholder: "add title"
-            value: "hello"
+            postfix: "hello"
         slug:
             type: slug
             uses: title

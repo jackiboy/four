@@ -8,7 +8,7 @@ import App from './App.vue'
  */
 import router from './router'
 import store from './store'
-import filters from './plugins/filters'
+import './plugins/filters'
 import './config/service_worker'
 /**
  * Bootstrap Javascript
@@ -32,6 +32,5 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
-  filters,
   render: h => h(App)
 }).$mount('#app')

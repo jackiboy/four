@@ -1,8 +1,8 @@
       <!-- ...</div> -->
 <template>
-  <div class="tab-pane" :id="group|slugify" :class="{'show active': index === 0}" role="tabpanel" :aria-labeledby="'tab-' + group|slugify">
-    <div v-for="(field, index) in fields" :key="index">
-      <record-field :field="field"></record-field>
+  <div class="tab-pane mt-4" :id="group|slugify" :class="{'show active': index === 0}" role="tabpanel" :aria-labeledby="'tab-' + group|slugify">
+    <div >
+      <record-field :field="field" v-for="(field, index) in fields" :key="index"></record-field>
     </div>
   </div>
 </template>
@@ -16,18 +16,17 @@ export default {
   components: {
     "record-field": Field
   },
-  mounted(){
-    // console.log(this.record)
-  },
   computed: {
     fields(){
-      const fields = this.record.definition.fields
-      const mapFields = Object.keys(fields).map(key => { 
-        fields[key].name = key
-        return fields[key]
-      });
-      const filterFields = mapFields.filter(field => field.group === this.group)
-      return filterFields;
+      // const definitions = this.record.definition.fields
+      // const mapDefinitions = Object.keys(definitions).map(key => { 
+      //   definitions[key].name = key
+      //   return definitions[key]
+      // });
+      // const filterDefinitions = mapDefinitions.filter(field => field.group === this.group)
+      const values = this.record.fields;
+      const filterValues = values.filter(field => field.definition.group === this.group);
+      return filterValues;
     },
   }
 };
