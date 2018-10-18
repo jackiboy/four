@@ -1,0 +1,14 @@
+//** Base | Navbar
+
+.admin__navbar{
+  -webkit-backface-visibility: hidden;
+  flex: calc(100% - #{$sidebar-width}) 0 0;
+  width: calc(100% - #{$sidebar-width});
+  position: fixed;
+  left: $sidebar-width;
+  top: 0;
+  height: $navbar-height;
+  color: $white;
+  background: theme-color("primary");
+  z-index: 1000;
+}

@@ -16,8 +16,8 @@
           <span class="sr-only">Toggle Dropdown</span>
         </button>
         <div class="dropdown-menu dropdown-menu-right">
-          <a class="dropdown-item" @click="editSlug">edit</a>
-          <a class="dropdown-item" @click="generateSlug">generate from title</a>
+          <a class="dropdown-item" @click="editSlug">{{editText}}</a>
+          <a class="dropdown-item" @click="generateSlugFromTitle()">generate from title</a>
         </div>
         </div>
       </div>
@@ -48,7 +48,8 @@ export default {
   data: () => {
     return {
       val: null,
-      edit: false
+      edit: false,
+      editText: 'edit slug'
     };
   },
   watch: {
@@ -60,14 +61,21 @@ export default {
     editSlug(){
       if(this.edit){
         this.edit = false
+        this.editText = 'edit slug'
+        this.generateSlug()
       } else {
         this.edit = true
+        this.editText = 'finish editing'
       }
     },
     generateSlug(){
+      const slug = this.$options.filters.slugify(this.val)
+      this.val = slug
+    },
+    generateSlugFromTitle(){
       const slugField = this.$store.getters['record/getSlugField'](this.value.slugUseFields[0])
       const slug = this.$options.filters.slugify(slugField[0].value)
-      this.val = slug;
+      this.val = slug
     }
   }
 };

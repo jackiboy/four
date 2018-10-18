@@ -12,9 +12,9 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     { path: '/', redirect: '/dashboard', component: App },
-    { path: '/dashboard', component: Dashboard },
-    { path: '/content/:type', component: Listing },
-    { path: '/content/edit/:id', component: Record },
-    { path: '/content/create/:id', component: Record }
+    { name: 'dashboard', path: '/dashboard', component: Dashboard, meta: { type: 'content' }},
+    { name: 'listing', path: '/content/:type', component: Listing },
+    { name: 'edit', path: '/content/edit/:id', component: Record },
+    { name: 'create', path: '/content/create/:id', component: Record}
   ]
 })

@@ -1,0 +1,26 @@
+//** Bootstrap Overrides
+
+// colors
+
+$theme-colors: (
+  "primary":                  #0A0BC7
+);
+
+// typography
+$font-family-base:              'Source Sans Pro', sans-serif;
+$font-weight-light:             300;
+$font-weight-normal:            400;
+$font-weight-bold:              600; 
+$headings-font-weight:          600;
+
+// border radius
+$border-radius:                 0.1rem;
+$border-radius-lg:              0.2rem;
+$border-radius-sm:              0.05rem;
+
+
+//label
+
+label{
+  font-weight: $font-weight-bold;
+}

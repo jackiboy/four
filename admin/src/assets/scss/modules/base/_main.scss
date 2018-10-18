@@ -1,0 +1,15 @@
+//** Base | Main
+
+.admin__main{
+  background: gray("100");
+  min-height: inherit;
+  width: calc(100% - #{$sidebar-width});
+  padding-top: $navbar-height;
+  &--body{
+    padding: $spacer * 2;
+  }
+  &--content{
+    background: $white;
+    padding: $spacer;
+  }
+}

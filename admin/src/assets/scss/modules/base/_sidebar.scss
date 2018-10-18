@@ -1,0 +1,41 @@
+//** Base | Sidebar
+
+
+.admin__sidebar{
+  width: $sidebar-width;
+  min-height: inherit;
+  background: $white;
+  &--brand{
+    height: $navbar-height * 1.65;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 $spacer;
+    img{
+      width: 100%;
+    }
+  }
+  &--content{
+    padding: $spacer 0;
+  }
+  &--menu{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li{
+      border-bottom: dashed 1px gray('200');
+      a{
+        width: 100%;
+        color: $body-color;
+        text-align: left;
+        text-transform: capitalize;
+        border-radius: 0;
+        i{
+          color: theme-color("primary");
+          margin-right: $spacer / 2;
+          width: 22px;
+        }
+      }
+    }
+  }
+}

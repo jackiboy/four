@@ -1,5 +1,13 @@
 <template>
   <div class="listing">
+    <listing-pagination
+      :maxVisibleButtons="Number(pagination.totalItems) / Number(pagination.itemsPerPage)"
+      :total-pages="Number(pagination.totalItems) / Number(pagination.itemsPerPage)"
+      :current-page="Number(pagination.currentPage)"
+      :total="Number(pagination.totalItems)"
+      :per-page="Number(pagination.itemsPerPage)"
+    >
+    </listing-pagination>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -14,6 +22,7 @@
       </tbody>
     </table>
     <listing-pagination 
+      :maxVisibleButtons="Number(pagination.totalItems) / Number(pagination.itemsPerPage)"
       :total-pages="Number(pagination.totalItems) / Number(pagination.itemsPerPage)"
       :current-page="Number(pagination.currentPage)"
       :total="Number(pagination.totalItems)"
@@ -33,13 +42,6 @@ export default {
   components: {
     "listing-row": Row,
     "listing-pagination": Pagination
-  },
-  async beforeCreate() {
-    this.$store.dispatch("content/setListing", {
-      ct: this.$route.params.type,
-      page: 1,
-      size: 5
-    });
   },
   computed: {
     listing() {

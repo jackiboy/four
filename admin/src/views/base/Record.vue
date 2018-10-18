@@ -1,6 +1,5 @@
 <template>
   <div class="admin__record">
-    <h1>Edit | {{record._id}}</h1>
     <div class="container">
       <div class="row">
         <record-main :record="record"></record-main>

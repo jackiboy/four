@@ -2,7 +2,7 @@
   <ul class="pagination">
     <li class="page-item" :class="{disabled: firstPage}">
       <a class="page-link" @click="previous">
-        Previous
+        <i class="fa fa-caret-left" aria-hidden="true"></i>
       </a>
     </li>
     <li v-for="(page, index) in pages" :key="index" class="page-item" :class="{ active: active(page.name) }">
@@ -12,13 +12,15 @@
     </li>
     <li class="page-item" :class="{disabled: lastPage}">
       <a class="page-link" @click="next">
-        Next
+        <i class="fa fa-caret-right" aria-hidden="true"></i>
       </a>
     </li>
   </ul>
 </template>
 
 <script>
+import fetchContentType from '../../../plugins/helpers/fetchContentType';
+
 export default {
   name: "listing-pagination",
   props: {
@@ -46,25 +48,13 @@ export default {
   },
   methods: {
     previous() {
-      this.$store.dispatch("content/setListing", {
-        ct: this.$route.params.type,
-        page: this.currentPage - 1,
-        size: 5
-      });
+      return fetchContentType(this, this.$route.params.type, this.currentPage - 1, 5);
     },
     number(page) {
-      this.$store.dispatch("content/setListing", {
-        ct: this.$route.params.type,
-        page: page,
-        size: 5
-      });
+      return fetchContentType(this, this.$route.params.type, page, 5);
     },
     next() {
-      this.$store.dispatch("content/setListing", {
-        ct: this.$route.params.type,
-        page: this.currentPage + 1,
-        size: 5
-      });
+      return fetchContentType(this, this.$route.params.type, this.currentPage + 1, 5);
     },
     active(page) {
       return this.currentPage === page;
